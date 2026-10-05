@@ -63,11 +63,15 @@ input[type=file]{display:none}
 #top .nm{flex:1;min-width:0;font-family:var(--mono);font-size:12px;color:var(--dim);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #bar.hide,#top.hide{opacity:0;pointer-events:none}
-#bigplay{position:absolute;left:50%;top:50%;width:78px;height:78px;margin:-39px 0 0 -39px;z-index:15;
-  border-radius:50%;background:rgba(14,14,16,.72);border:1px solid rgba(255,255,255,.2);color:#fff;
-  font-size:26px;display:none;align-items:center;justify-content:center;padding-left:5px}
+/* Duraklatınca ortadaki düğme: görüntüyü örtmesin diye neredeyse saydam.
+   Ekrana bir kez dokununca kontrollerle birlikte tamamen kaybolur. */
+#bigplay{position:absolute;left:50%;top:50%;width:60px;height:60px;margin:-30px 0 0 -30px;z-index:15;
+  border-radius:50%;background:rgba(0,0,0,.14);border:1px solid rgba(255,255,255,.28);
+  color:rgba(255,255,255,.6);font-size:20px;display:none;align-items:center;justify-content:center;
+  padding-left:4px;transition:opacity .18s}
 #bigplay.on{display:flex}
-#bigplay:active{background:rgba(40,40,44,.85)}
+#bigplay.hide{opacity:0;pointer-events:none}
+#bigplay:active{background:rgba(0,0,0,.3);color:#fff}
 #toast{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:16;pointer-events:none;
   background:rgba(14,14,16,.82);color:#fff;font-family:var(--mono);font-size:14px;padding:10px 16px;
   border-radius:3px;opacity:0;transition:opacity .15s;white-space:nowrap}
@@ -790,7 +794,7 @@ document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==
 let hT=0;
 const panelOpen=()=>$("set").classList.contains("on");
 const uiHidden=()=>$("bar").classList.contains("hide");
-function setUI(v){ $("bar").classList.toggle("hide",!v); $("top").classList.toggle("hide",!v); }
+function setUI(v){ $("bar").classList.toggle("hide",!v); $("top").classList.toggle("hide",!v); $("bigplay").classList.toggle("hide",!v); }
 function hideSoon(){clearTimeout(hT);hT=setTimeout(()=>{if((S.playing||kind==="image")&&!panelOpen())setUI(false);},2500);}
 function showBar(){clearTimeout(hT);setUI(true);}
 

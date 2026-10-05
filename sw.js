@@ -1,7 +1,7 @@
 /* MatchPlayer — servis işçisi
    Uygulamayı güncelledikten sonra SÜRÜM satırını değiştir,
    yoksa telefon eski kopyayı önbellekten açmaya devam eder. */
-const SURUM = "matchplayer-v5";
+const SURUM = "matchplayer-v6";
 
 const KABUK = [
   "./",
