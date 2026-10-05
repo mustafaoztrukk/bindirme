@@ -1,6 +1,6 @@
 {
-  "name": "Bindirme — RGB video ve still bindirmeli oynatıcı",
-  "short_name": "Bindirme",
+  "name": "MatchPlayer — referans eşlemeli video ve still oynatıcı",
+  "short_name": "MatchPlayer",
   "description": "Referans monitöre eşlemek için video ve still üstüne kalibre Kelvin/RGB bindirmesi uygulayan oynatıcı.",
   "lang": "tr",
   "start_url": "./",

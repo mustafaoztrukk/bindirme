@@ -6,12 +6,12 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Bindirme">
+<meta name="apple-mobile-web-app-title" content="MatchPlayer">
 <link rel="apple-touch-startup-image" media="(device-width:414px) and (device-height:896px) and (-webkit-device-pixel-ratio:2)" href="icons/splash-828x1792.png">
 <link rel="apple-touch-icon" href="icons/icon-180.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#000000">
-<title>Bindirme</title>
+<title>MatchPlayer</title>
 <style>
 :root{
   --bg:#0a0a0b; --panel:#141416; --line:#28282c; --txt:#ededee; --dim:#8b8b92; --dim2:#5f5f66;
@@ -191,7 +191,7 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
     <div id="ref"></div>
     <div id="tint"></div>
     <div id="empty">
-      <h1>Bindirme</h1>
+      <h1>MatchPlayer</h1>
       <p>Bir video ya da Resolve'dan çıkardığın still'leri seç — MP4, MOV, JPEG, PNG, TIFF. Birden fazla still seçersen kaydırarak gezersin.</p>
       <button class="pick" id="pick">Dosya seç</button>
       <input type="file" id="file" multiple
@@ -899,6 +899,14 @@ $("envc").onclick=()=>{
 
 /* ---------- çevrimdışı çalışma ---------- */
 if("serviceWorker" in navigator){
+  // Yeni sürüm indiğinde bir kez yenile, güncelleme ilk açılışta görünsün.
+  // İlk kurulumda ve bir dosya açıkken yenilemez; izlenen şey kesilmez.
+  const hadCtl=!!navigator.serviceWorker.controller;
+  let reloaded=false;
+  navigator.serviceWorker.addEventListener("controllerchange",()=>{
+    if(!hadCtl||reloaded||kind!=="none") return;
+    reloaded=true; location.reload();
+  });
   addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 }
 </script>

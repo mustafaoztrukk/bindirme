@@ -1,7 +1,7 @@
-/* Bindirme — servis işçisi
+/* MatchPlayer — servis işçisi
    Uygulamayı güncelledikten sonra SÜRÜM satırını değiştir,
    yoksa telefon eski kopyayı önbellekten açmaya devam eder. */
-const SURUM = "bindirme-v4";
+const SURUM = "matchplayer-v5";
 
 const KABUK = [
   "./",

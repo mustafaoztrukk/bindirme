@@ -1,4 +1,4 @@
-# Bindirme
+# MatchPlayer
 
 iPhone için video ve still oynatıcı. Referans monitöre eşlediğin Kelvin/RGB setup'ını görüntünün üstüne bindirir. claude.ai'den bağımsız çalışır, giriş istemez, internet olmadan da açılır.
 
@@ -30,7 +30,7 @@ Oynarken ya da still açıkken kontroller 2,5 sn sonra gizlenir. Renk paneli aç
 
 ## Güncelleme
 
-Her değişiklikte `sw.js` içindeki sürümü bir artır (`bindirme-v4` → `bindirme-v5`). Artırmazsan telefon eski kopyayı açmaya devam eder.
+Her değişiklikte `sw.js` içindeki sürümü bir artır (`matchplayer-v5` → `matchplayer-v6`). Artırmazsan telefon eski kopyayı açmaya devam eder.
 
 ## Desteklenen dosyalar
 
